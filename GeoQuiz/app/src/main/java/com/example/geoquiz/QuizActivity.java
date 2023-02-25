@@ -3,6 +3,7 @@ package com.example.geoquiz;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 
 public class QuizActivity extends Activity {
@@ -13,6 +14,22 @@ public class QuizActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        mTrueButton = (Button) findViewById(R.id.true_button);
+        mTrueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Does nothing yet.
+            }
+        });
+        
+        mFalseButton = (Button) findViewById(R.id.false_button);
+        mFalseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Does nothing yet.
+            }
+        });
     }
 
     //not identical to book, book inflates: getMenuInflator.inflate(R.menu.activity_quiz, menu) but
