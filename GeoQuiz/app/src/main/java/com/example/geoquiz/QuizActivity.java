@@ -3,8 +3,12 @@ package com.example.geoquiz;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.Button;
 
 public class QuizActivity extends Activity {
+    private Button mTrueButton;
+    private Button mFalseButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
