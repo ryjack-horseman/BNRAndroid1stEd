@@ -4,3 +4,7 @@
 .DS_Store
 GeoQuiz/.idea/.name
 GeoQuiz/.idea/vcs.xml
+GeoQuiz/.idea/deploymentTargetDropDown.xml
+.idea/vcs.xml
+.idea/modules.xml
+*.iml
