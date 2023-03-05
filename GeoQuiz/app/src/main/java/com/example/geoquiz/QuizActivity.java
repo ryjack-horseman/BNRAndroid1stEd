@@ -1,6 +1,7 @@
 package com.example.geoquiz;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -42,6 +43,7 @@ public class QuizActivity extends Activity {
         Log.d(TAG, "onCreate(Bundle) called");
         setContentView(R.layout.activity_quiz);
 
+        //I saved it into a variable and reused the listener for the challenge
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,7 +92,10 @@ public class QuizActivity extends Activity {
         mCheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Start CheatActivity
+                Intent i = new Intent(QuizActivity.this, CheatActivity.class);
+                //pass extra so CheatActivity knows the answer to the current question
+                i.putExtra(CheatActivity.EXTRA_ANSWER_IS_TRUE, mQuestionBank[mCurrentIdx].isTrueQuestion());
+                startActivity(i);
             }
         });
 
