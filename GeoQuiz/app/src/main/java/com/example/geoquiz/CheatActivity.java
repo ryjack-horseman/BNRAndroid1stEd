@@ -1,7 +1,9 @@
 package com.example.geoquiz;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,8 +22,9 @@ public class CheatActivity extends Activity {
 
 
     private TextView mAnswerTextView;
-    private Button mShowAnswer;
+    private TextView mApiLevelTextView;
 
+    private Button mShowAnswer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,9 @@ public class CheatActivity extends Activity {
         mAnswerIsTrue = getIntent().getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false);
 
         mAnswerTextView = (TextView) findViewById(R.id.answerTextView);
+
+        mApiLevelTextView = (TextView) findViewById(R.id.APITextView);
+        mApiLevelTextView.setText("API level " + Build.VERSION.SDK_INT);
 
         mShowAnswer = (Button) findViewById(R.id.showAnswerButton);
         mShowAnswer.setOnClickListener(new View.OnClickListener() {
