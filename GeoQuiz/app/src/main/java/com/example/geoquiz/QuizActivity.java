@@ -3,7 +3,6 @@ package com.example.geoquiz;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -16,6 +15,7 @@ public class QuizActivity extends Activity {
     private static final String TAG = "QuizActivity";
 
     private static final String KEY_INDEX = "index";
+    private static final String KEY_CHEATER = "cheater";
 
     private Button mTrueButton;
     private Button mFalseButton;
@@ -105,6 +105,7 @@ public class QuizActivity extends Activity {
 
         if(savedInstanceState != null){
             mCurrentIdx = savedInstanceState.getInt(KEY_INDEX, 0);
+            mIsCheater = savedInstanceState.getBoolean(KEY_CHEATER, false);
         }
 
         updateQuestion();
@@ -115,6 +116,7 @@ public class QuizActivity extends Activity {
         super.onSaveInstanceState(outState);
         Log.i(TAG, "onSaveInstanceState");
         outState.putInt(KEY_INDEX, mCurrentIdx);
+        outState.putBoolean(KEY_CHEATER , mIsCheater);
     }
 
     @Override
