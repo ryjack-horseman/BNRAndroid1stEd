@@ -50,7 +50,7 @@ public class QuizActivity extends Activity {
             @Override
             public void onClick(View v) {
                 mCurrentIdx = (mCurrentIdx + 1) % mQuestionBank.length;
-                mIsCheater = false;
+                mIsCheater = mQuestionBank[mCurrentIdx].getWasCheated();
                 updateQuestion();
             }
         };
@@ -87,7 +87,7 @@ public class QuizActivity extends Activity {
                 if(mCurrentIdx < 0){
                     mCurrentIdx = mCurrentIdx + mQuestionBank.length;
                 }
-                mIsCheater = false;
+                mIsCheater = mQuestionBank[mCurrentIdx].getWasCheated();
                 updateQuestion();
             }
         });
@@ -125,6 +125,7 @@ public class QuizActivity extends Activity {
             return;
         }
         mIsCheater = data.getBooleanExtra(CheatActivity.EXTRA_ANSWER_SHOWN, false);
+        mQuestionBank[mCurrentIdx].setCheated(mIsCheater);
     }
 
     private void updateQuestion() {
